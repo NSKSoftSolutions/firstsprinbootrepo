@@ -4,9 +4,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.service.annotation.PutExchange;
 
 import com.first.sb.api.domain.Employee;
 import com.first.sb.api.repos.EmployeeRepository;
@@ -55,6 +52,23 @@ public class EmployeeServicesImpl implements EmployeeServices{
 			throw new IllegalArgumentException("No EmployeeDetails Found");
 		}
 		return dbEmployeeDet;
+	}
+
+	@Override
+	public boolean deleteEmp(int empId) {
+
+		
+		Optional<Employee> employee = employeeRepository.findById(empId);
+		if (employee.isPresent()) {
+			employeeRepository.deleteById(empId);
+			return true;
+		} else {
+			System.out.println("Cant delete the Employee, coz employee details already deleted");
+			return false;
+		}
+		 
+		//employeeRepository.deleteById(empId);
+		//return true;
 	}
 	
 	

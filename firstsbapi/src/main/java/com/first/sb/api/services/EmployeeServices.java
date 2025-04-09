@@ -8,5 +8,6 @@ public interface EmployeeServices{
 	public Employee getEmployee(int empId);
 	public Employee retEmployeeDet(String empName);
 	public Employee updateEmp(Employee employee);
-	
+	public boolean deleteEmp(int empId);
+		
 }
