@@ -20,6 +20,7 @@ public class OrgnizationController {
 	
 	@PostMapping("/organization")
 	public Organization addOrginzation(@RequestBody Organization organization){
+		 System.out.println(organization);
 		 return orgServices.insertOrgDet(organization);
 	}
 	@GetMapping("/organization/{orgName}")
